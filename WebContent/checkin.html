@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="helpers.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+<script>
+
+$("#inputFile").change(function(){
+    readURL(this);
+});
+
+function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#preview').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+</script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Nirmal Bharat</title>
+</head>
+<body>
+<div id="pic">
+<h3>Nirmal Bharat</h3>
+<b>Check-in cleanliness information</b>
+<br><br>Select the image &emsp; <input type="file" id="file"  onchange="readURL(this);"/>
+<br><br>
+<img id="preview" class="prev" src="#" alt="No image selected">
+<br><br>
+<form>
+<table>
+<tr>
+<td><b>Rate this place</b></td>
+<td><select id="score">
+<option value="0" selected><option>
+<option value="1">Filthy</option>
+<option value="2">Dirty</option>
+<option value="3">Unclean</option>
+<option value="4">Clean</option>
+<option value="5">Beautiful</option>
+</select>
+</tr>
+</table>
+</form>
+<br>
+<label>Comment(in lesser than 140 characters)</label><br>
+<textarea id="comment" rows=2 cols=60 onkeyup="countChars()"></textarea>&emsp;&emsp;<label id="remaining" >140</label>
+<br><br>
+<form>
+<table><tr>
+<td>Do you wish to tweet your comment?</td>
+<td><input type="radio" name="canTweet" id="tyes" value="Yes">Yes</td>
+<td><input type="radio" name="canTweet" id="tno"  value="No" checked="checked">No</td>
+</tr></table>
+</form>
+<br>
+<button onclick="uploadPic();"> Upload </button>
+</div>
+<div>
+</div>
+</body>
+</html>

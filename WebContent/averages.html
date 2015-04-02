@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Nirmal Bharat Cleanliness map</title>
+<script src="sublocal_avg.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization"></script>
+</head>
+<style>
+html, body, #map-canvas {
+	height: 100%;
+    margin: 0px;
+    padding: 0px
+}
+
+#legend {
+    background: white;
+    padding: 10px;
+}
+
+#panel {
+	position: absolute;
+    top: 5px;
+    left: 50%;
+    margin-left: -180px;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+}
+</style>
+<body>
+<div id="input">
+<h2>Sub-locality average scores</h2>
+<label><i>Restricted to a Bengaluru(type=city) example for now</i></label>
+<br><br>
+<table>
+<tr><td>Type of geo-political entity</td><td><select id="gpType"><option value="city">City</option></select></td></tr>
+<tr></tr>
+<tr><td>Name of the entity</td><td><select id="gpName"><option value="Bengaluru">Bengaluru</option></select></td></tr>
+<tr></tr>
+<tr><td><button onclick="getAvgData()">Submit</button></td></tr>
+</table>
+</div>
+<div id="map-canvas">
+</div>";
+<div id="legend" style="display:none">
+Color coding<br>
+<p style="color:red"><b>Filthy</b></p>
+<p style="color:orange"><b>Dirty</b></p>
+<p style="color:yellow"><b>Unclean</b></p>
+<p style="color:green"><b>Clean</b></p>
+<p style="color:blue"><b>Beautiful</b></p>
+</div>
+</body>
+</html>
